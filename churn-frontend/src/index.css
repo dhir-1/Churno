@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Premium Accent Palette (Vibrant Rose/Red) */
+  --color-brand-50: #fff1f2;
+  --color-brand-100: #ffe4e6;
+  --color-brand-500: #f43f5e;
+  --color-brand-600: #e11d48;
+  --color-brand-700: #be123c;
+}
+
+:root {
+  /* LIGHT MODE - Premium Clean */
+  --bg-primary: #fafafa; /* Zinc 50 */
+  --bg-secondary: #f4f4f5; /* Zinc 100 */
+  --bg-card: #ffffff;
+  --bg-sidebar: #ffffff;
+  
+  --text-primary: #18181b; /* Zinc 900 */
+  --text-secondary: #71717a; /* Zinc 500 */
+  --text-tertiary: #a1a1aa; /* Zinc 400 */
+
+  --border-color: #e4e4e7; /* Zinc 200 */
+  
+  --accent-color: var(--color-brand-600);
+  --accent-hover: var(--color-brand-700);
+  --accent-subtle: var(--color-brand-50);
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --shadow-premium: 0 20px 40px -4px rgb(0 0 0 / 0.05);
+}
+
+.dark {
+  /* DARK MODE - Deep & Rich */
+  --bg-primary: #09090b; /* Zinc 950 */
+  --bg-secondary: #18181b; /* Zinc 900 */
+  --bg-card: #18181b; /* Zinc 900 */
+  --bg-sidebar: #09090b;
+
+  --text-primary: #fafafa; /* Zinc 50 */
+  --text-secondary: #a1a1aa; /* Zinc 400 */
+  --text-tertiary: #52525b; /* Zinc 600 */
+
+  --border-color: #27272a; /* Zinc 800 */
+
+  --accent-color: var(--color-brand-500); /* Slightly lighter for dark mode */
+  --accent-hover: var(--color-brand-600);
+  --accent-subtle: rgba(244, 63, 94, 0.15); /* Transparent Brand */
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.dark .glass {
+  background: rgba(24, 24, 27, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Component Classes */
+.card-premium {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+.card-premium:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-subtle);
+}
+
+.input-premium {
+  width: 100%;
+  background-color: var(--bg-secondary); /* Slight contrast from card */
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+.input-premium:focus {
+  background-color: var(--bg-card);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+.dark .input-premium {
+    background-color: #27272a; /* Zinc 800 */
+}
+.dark .input-premium:focus {
+    background-color: #18181b;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
